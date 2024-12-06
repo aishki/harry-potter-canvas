@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harry Potter Themed Canvas</title>
+    <style>
+      @font-face {
+        font-family: "Harry Potter";
+        src: url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.eot");
+        src: url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.eot?#iefix")
+            format("embedded-opentype"),
+          url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.woff2")
+            format("woff2"),
+          url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.woff")
+            format("woff"),
+          url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.ttf")
+            format("truetype"),
+          url("//db.onlinewebfonts.com/t/0421d4186d6efbfc5331fe180895e780.svg#Harry Potter")
+            format("svg");
+      }
+      body {
+        font-family: "Harry Potter", Arial, sans-serif;
+        background-color: #740001;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        color: #ffd700;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        justify-content: center;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      canvas {
+        border: 1px solid #ffd700;
+        max-width: 100%;
+        height: auto;
+        background-color: #ffffff;
+      }
+      .caption {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: #ffd700;
+      }
+      h1 {
+        text-align: center;
+        color: #ffd700;
+        margin-bottom: 30px;
+      }
+      .attribution {
+        text-align: center;
+        margin-top: 30px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Harry Potter Themed Canvas</h1>
+    <div class="container">
+      <div class="item">
+        <canvas id="canvas1" width="200" height="200"></canvas>
+        <div class="caption">Harry Potter</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas2" width="200" height="200"></canvas>
+        <div class="caption">Hogwarts Castle</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas3" width="200" height="200"></canvas>
+        <div class="caption">Golden Snitch</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas4" width="200" height="200"></canvas>
+        <div class="caption">Platform 9 3/4</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas5" width="200" height="200"></canvas>
+        <div class="caption">Snake Patronus</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas6" width="200" height="200"></canvas>
+        <div class="caption">Dementor</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas7" width="200" height="200"></canvas>
+        <div class="caption">Hogwarts Acceptance Letter</div>
+      </div>
+      <div class="item">
+        <canvas id="canvas8" width="200" height="200"></canvas>
+        <div class="caption">Deathly Hallows</div>
+      </div>
+    </div>
+    <div class="attribution">Submitted by Arielle Jimera</div>
+
+    <script>
+      // Harry Potter
+      const ctx1 = document.getElementById("canvas1").getContext("2d");
+      ctx1.fillStyle = "#87CEEB";
+      ctx1.fillRect(0, 0, 200, 200);
+      // Hair
+      ctx1.fillStyle = "#000000";
+      ctx1.beginPath();
+      ctx1.arc(100, 70, 40, 0, Math.PI * 2);
+      ctx1.fill();
+      // Face
+      ctx1.fillStyle = "#FFE0BD";
+      ctx1.beginPath();
+      ctx1.arc(100, 80, 30, 0, Math.PI * 2);
+      ctx1.fill();
+      // Glasses
+      ctx1.strokeStyle = "#000000";
+      ctx1.lineWidth = 2;
+      ctx1.beginPath();
+      ctx1.arc(85, 75, 10, 0, Math.PI * 2);
+      ctx1.moveTo(125, 75);
+      ctx1.arc(115, 75, 10, 0, Math.PI * 2);
+      ctx1.moveTo(95, 75);
+      ctx1.lineTo(105, 75);
+      ctx1.stroke();
+      // Scar
+      ctx1.strokeStyle = "#FF0000";
+      ctx1.lineWidth = 2;
+      ctx1.beginPath();
+      ctx1.moveTo(90, 55);
+      ctx1.lineTo(100, 45);
+      ctx1.lineTo(110, 55);
+      ctx1.stroke();
+      // Robe
+      ctx1.fillStyle = "#000000";
+      ctx1.fillRect(70, 110, 60, 90);
+
+      // Hogwarts Castle
+      const ctx2 = document.getElementById("canvas2").getContext("2d");
+      ctx2.fillStyle = "#000033";
+      ctx2.fillRect(0, 0, 200, 200);
+      // Stars
+      ctx2.fillStyle = "#FFFFFF";
+      for (let i = 0; i < 50; i++) {
+        ctx2.beginPath();
+        ctx2.arc(Math.random() * 200, Math.random() * 100, 1, 0, Math.PI * 2);
+        ctx2.fill();
+      }
+      // Castle base
+      ctx2.fillStyle = "#808080";
+      ctx2.fillRect(20, 80, 160, 120);
+      // Towers
+      ctx2.fillStyle = "#A0522D";
+      ctx2.fillRect(40, 20, 30, 60);
+      ctx2.fillRect(130, 40, 30, 40);
+      // Windows
+      ctx2.fillStyle = "#FFFF00";
+      for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 4; j++) {
+          ctx2.fillRect(30 + i * 25, 90 + j * 25, 15, 15);
+        }
+      }
+
+      // Golden Snitch
+      const ctx3 = document.getElementById("canvas3").getContext("2d");
+      ctx3.fillStyle = "#4B0082";
+      ctx3.fillRect(0, 0, 200, 200);
+      // Snitch body
+      ctx3.fillStyle = "#FFD700";
+      ctx3.beginPath();
+      ctx3.arc(100, 100, 30, 0, Math.PI * 2);
+      ctx3.fill();
+      // Wings
+      ctx3.fillStyle = "#FFFFFF";
+      ctx3.beginPath();
+      ctx3.moveTo(100, 100);
+      ctx3.quadraticCurveTo(150, 50, 180, 100);
+      ctx3.quadraticCurveTo(150, 150, 100, 100);
+      ctx3.moveTo(100, 100);
+      ctx3.quadraticCurveTo(50, 50, 20, 100);
+      ctx3.quadraticCurveTo(50, 150, 100, 100);
+      ctx3.fill();
+
+      // Platform 9 3/4
+      const ctx4 = document.getElementById("canvas4").getContext("2d");
+      ctx4.fillStyle = "#D3D3D3";
+      ctx4.fillRect(0, 0, 200, 200);
+      // Brick wall
+      ctx4.fillStyle = "#8B4513";
+      for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+          ctx4.fillRect(i * 20 + (j % 2) * 10, j * 20, 18, 18);
+        }
+      }
+      // Sign
+      ctx4.fillStyle = "#FFFFFF";
+      ctx4.fillRect(50, 70, 100, 60);
+      ctx4.fillStyle = "#000000";
+      ctx4.font = "bold 24px Arial";
+      ctx4.fillText("9 3/4", 70, 110);
+
+      // Snake Patronus
+      const ctx5 = document.getElementById("canvas5").getContext("2d");
+      ctx5.fillStyle = "#000000";
+      ctx5.fillRect(0, 0, 200, 200);
+      // Snake
+      ctx5.strokeStyle = "#FFFFFF";
+      ctx5.lineWidth = 5;
+      ctx5.beginPath();
+      ctx5.moveTo(20, 180);
+      ctx5.quadraticCurveTo(60, 100, 100, 150);
+      ctx5.quadraticCurveTo(140, 200, 180, 100);
+      ctx5.quadraticCurveTo(160, 50, 120, 80);
+      ctx5.stroke();
+      // Glow effect
+      ctx5.shadowColor = "#00FFFF";
+      ctx5.shadowBlur = 20;
+      ctx5.stroke();
+
+      // Dementor
+      const ctx6 = document.getElementById("canvas6").getContext("2d");
+      ctx6.fillStyle = "#4B0082";
+      ctx6.fillRect(0, 0, 200, 200);
+      // Dementor body
+      ctx6.fillStyle = "#000000";
+      ctx6.beginPath();
+      ctx6.moveTo(70, 30);
+      ctx6.quadraticCurveTo(100, 0, 130, 30);
+      ctx6.quadraticCurveTo(150, 100, 130, 170);
+      ctx6.quadraticCurveTo(100, 200, 70, 170);
+      ctx6.quadraticCurveTo(50, 100, 70, 30);
+      ctx6.fill();
+      // Dementor face
+      ctx6.fillStyle = "#FFFFFF";
+      ctx6.beginPath();
+      ctx6.arc(85, 60, 5, 0, Math.PI * 2);
+      ctx6.arc(115, 60, 5, 0, Math.PI * 2);
+      ctx6.fill();
+      ctx6.beginPath();
+      ctx6.arc(100, 80, 10, 0, Math.PI);
+      ctx6.stroke();
+
+      // Hogwarts Acceptance Letter
+      const ctx7 = document.getElementById("canvas7").getContext("2d");
+      ctx7.fillStyle = "#F5DEB3";
+      ctx7.fillRect(0, 0, 200, 200);
+      // Envelope
+      ctx7.fillStyle = "#FFFFFF";
+      ctx7.beginPath();
+      ctx7.moveTo(20, 40);
+      ctx7.lineTo(180, 40);
+      ctx7.lineTo(180, 160);
+      ctx7.lineTo(20, 160);
+      ctx7.closePath();
+      ctx7.fill();
+      ctx7.strokeStyle = "#000000";
+      ctx7.lineWidth = 2;
+      ctx7.stroke();
+      // Seal
+      ctx7.fillStyle = "#FF0000";
+      ctx7.beginPath();
+      ctx7.arc(100, 100, 30, 0, Math.PI * 2);
+      ctx7.fill();
+      // H on seal
+      ctx7.fillStyle = "#FFFFFF";
+      ctx7.font = "bold 40px Arial";
+      ctx7.fillText("H", 85, 115);
+
+      // Deathly Hallows
+      const ctx8 = document.getElementById("canvas8").getContext("2d");
+      ctx8.fillStyle = "#2F4F4F";
+      ctx8.fillRect(0, 0, 200, 200);
+      // Triangle
+      ctx8.strokeStyle = "#FFFFFF";
+      ctx8.lineWidth = 3;
+      ctx8.beginPath();
+      ctx8.moveTo(100, 30);
+      ctx8.lineTo(30, 170);
+      ctx8.lineTo(170, 170);
+      ctx8.closePath();
+      ctx8.stroke();
+      // Circle
+      ctx8.beginPath();
+      ctx8.arc(100, 115, 25, 0, Math.PI * 2);
+      ctx8.stroke();
+      // Line
+      ctx8.beginPath();
+      ctx8.moveTo(100, 65);
+      ctx8.lineTo(100, 165);
+      ctx8.stroke();
+    </script>
+  </body>
+</html>
